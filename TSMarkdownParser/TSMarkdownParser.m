@@ -40,11 +40,11 @@ typedef NSFont UIFont;
                            @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:32] } ];
 #else
     _headerAttributes = @[ @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:23] },
-                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:21] },
-                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:19] },
-                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:17] },
                            @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:15] },
-                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:13] } ];
+                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:13] },
+                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:11] },
+                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:9] },
+                           @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:7] } ];
 #endif
     
     _listAttributes = @[];
@@ -91,7 +91,7 @@ typedef NSFont UIFont;
         NSMutableString *listString = [NSMutableString string];
         while (--level)
             [listString appendString:@"\t"];
-        [listString appendString:@"• "];
+        [listString appendString:@"•  "];
         [attributedString replaceCharactersInRange:range withString:listString];
     } textFormattingBlock:^(NSMutableAttributedString *attributedString, NSRange range, NSUInteger level) {
         [TSMarkdownParser addAttributes:weakParser.listAttributes atIndex:level - 1 toString:attributedString range:range];
